@@ -1,0 +1,188 @@
+# ==========================================
+# System Guardian AI - Project Structure
+# ==========================================
+
+$project = "SystemGuardianAI"
+
+# Create Root Folder
+New-Item -ItemType Directory -Path $project -Force | Out-Null
+
+# Move into project
+Set-Location $project
+
+# ===========================
+# Create Folders
+# ===========================
+
+$folders = @(
+    "agent",
+    "monitor",
+    "alert",
+    "database",
+    "config",
+    "models",
+    "logs",
+    "ui",
+    "utils",
+    "assets",
+    "tests"
+)
+
+foreach ($folder in $folders) {
+    New-Item -ItemType Directory -Path $folder -Force | Out-Null
+}
+
+# ===========================
+# Root Files
+# ===========================
+
+$rootFiles = @(
+    "app.py",
+    "requirements.txt",
+    ".env",
+    ".gitignore",
+    "README.md"
+)
+
+foreach ($file in $rootFiles) {
+    New-Item -ItemType File -Path $file -Force | Out-Null
+}
+
+# ===========================
+# Agent Module
+# ===========================
+
+$agentFiles = @(
+    "graph.py",
+    "tools.py",
+    "prompts.py",
+    "memory.py",
+    "__init__.py"
+)
+
+foreach ($file in $agentFiles) {
+    New-Item -ItemType File -Path "agent\$file" -Force | Out-Null
+}
+
+# ===========================
+# Monitor Module
+# ===========================
+
+$monitorFiles = @(
+    "cpu.py",
+    "memory.py",
+    "disk.py",
+    "process.py",
+    "network.py",
+    "system_info.py",
+    "__init__.py"
+)
+
+foreach ($file in $monitorFiles) {
+    New-Item -ItemType File -Path "monitor\$file" -Force | Out-Null
+}
+
+# ===========================
+# Alert Module
+# ===========================
+
+$alertFiles = @(
+    "gmail.py",
+    "rules.py",
+    "notifier.py",
+    "__init__.py"
+)
+
+foreach ($file in $alertFiles) {
+    New-Item -ItemType File -Path "alert\$file" -Force | Out-Null
+}
+
+# ===========================
+# Database Module
+# ===========================
+
+$databaseFiles = @(
+    "sqlite_db.py",
+    "models.py",
+    "__init__.py"
+)
+
+foreach ($file in $databaseFiles) {
+    New-Item -ItemType File -Path "database\$file" -Force | Out-Null
+}
+
+# ===========================
+# Config Module
+# ===========================
+
+$configFiles = @(
+    "settings.py",
+    "__init__.py"
+)
+
+foreach ($file in $configFiles) {
+    New-Item -ItemType File -Path "config\$file" -Force | Out-Null
+}
+
+# ===========================
+# Models Module
+# ===========================
+
+$modelFiles = @(
+    "llm.py",
+    "__init__.py"
+)
+
+foreach ($file in $modelFiles) {
+    New-Item -ItemType File -Path "models\$file" -Force | Out-Null
+}
+
+# ===========================
+# UI Module
+# ===========================
+
+$uiFiles = @(
+    "dashboard.py",
+    "chat.py",
+    "__init__.py"
+)
+
+foreach ($file in $uiFiles) {
+    New-Item -ItemType File -Path "ui\$file" -Force | Out-Null
+}
+
+# ===========================
+# Utils Module
+# ===========================
+
+$utilFiles = @(
+    "logger.py",
+    "helpers.py",
+    "__init__.py"
+)
+
+foreach ($file in $utilFiles) {
+    New-Item -ItemType File -Path "utils\$file" -Force | Out-Null
+}
+
+# ===========================
+# Test Module
+# ===========================
+
+$testFiles = @(
+    "test_monitor.py",
+    "test_alert.py",
+    "test_agent.py"
+)
+
+foreach ($file in $testFiles) {
+    New-Item -ItemType File -Path "tests\$file" -Force | Out-Null
+}
+
+Write-Host ""
+Write-Host "======================================" -ForegroundColor Green
+Write-Host "SystemGuardianAI Project Created!" -ForegroundColor Green
+Write-Host "======================================" -ForegroundColor Green
+Write-Host ""
+Write-Host "Project Location:"
+Write-Host (Get-Location)
